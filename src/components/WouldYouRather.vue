@@ -1,7 +1,7 @@
 <template>
   <div class="wyr">
    
-    <h2>Please make your choice</h2>
+    <h2>Would you rather...</h2>
 
     <h3>{{ question }}</h3> <!--Recieving from v-bind in App - THIS ACTUALLY DISPLAYS THE QUESITON-->
 
@@ -25,6 +25,7 @@ export default {
     //use the type - in this case String
     answer1: String,
     answer2: String,
+    id: String
   },
   data() {
     return {
@@ -34,7 +35,7 @@ export default {
   },
   methods: {
     choiceMade() {
-      this.$emit('answer-changed', this.choice)
+      this.$emit('answer-changed', this.choice, this.id)
       //Dollar emit is a vue method used to send a message to parent
       //Best practice to use a - somewhere in the name
       //this.choice is sending the data
@@ -52,7 +53,10 @@ h3 {
 .wyr {
   border: 2px blue solid;
   background: lemonchiffon;
+  margin: 5px
 }
+
+
 
 
 </style>
